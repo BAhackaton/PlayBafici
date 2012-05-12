@@ -15,7 +15,11 @@
 		@for(film:Film <- options){
 			@renderOption(film.id,film.title)
 		}
-		<a id="next" class="btn btn-large disabled">Siguiente</a>
+		<form id="scoreForm" action="/game">
+			<input id="scoreValue" name="scoreValue" type="hidden" value="" />
+			<input type="submit" id="next" class="btn btn-large disabled" value="Siguiente" />
+		</form>
+
 	</div>
 
 }
@@ -47,7 +51,8 @@
 		});
 
 		$('#msg').html(msg);
-		$('#next').attr('href','/game/'+puntaje)
+		$('#scoreValue').val(puntaje);
+		//$('#next').attr('href','/game/'+puntaje)
 		$('#next').removeClass('disabled');
 	});
 
