@@ -165,4 +165,14 @@
     margin-top: 10px;
     }
 
+
+    #next {
+      width: 100% !important;
+      display: block;
+      padding: 9px 0;
+      text-align: center;
+    }
+
+    #next:hover { text-decoration:none }
+
       
