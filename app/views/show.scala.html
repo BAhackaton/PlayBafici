@@ -1,4 +1,8 @@
-@(film: Film)
+@(film: Film, score: Int = 10, options: Seq[Film] = Seq[Film]())
+
+film: @film
+score: @score
+options: @options
 
 @main("Open Bafici") {
 <div id="langSelector" class="btn-group pull-right">
