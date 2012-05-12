@@ -61,14 +61,5 @@ object Film {
     Bafici.queryByRandom(count, year).as[Seq[Film]]
   }
 
-  def findByRandom(count: Int = 3, year: String = Bafici.defaultYear): Seq[Film] = {
-   //val total = Bafici.count(year)
-   //val randomPos = scala.util.Random.nextInt(total-1) + 1
-   
-   val films = Seq(Film)
-
-   Seq(Film("11"), Film("22"), Film("33"))
- }
-
 }
 
