@@ -1,10 +1,8 @@
-@(film: Film)
+@(film: Film, score: Int = 10, options: Seq[Film] = Seq[Film]())
 
 @main("Open Bafici") {
-<div id="langSelector" class="btn-group pull-right">
-	<a class="btn btn-warning" rel="en">Inglés</a>
-	<a class="btn btn-warning active" rel="es">Español</a>
-</div>
+<span>Tenes @score</span>
+<span id="msg">Jugas por 10</span>
 } {
 
 <div class="row-fluid">
@@ -18,25 +16,44 @@
 <hr/>
 
 <div class="row-fluid">
-	@renderOption(film.id,film.title)
-	@renderOption(film.id,film.title)
-	@renderOption(film.id,film.title)
-
-	<form class="form-vertical">
-		<input id="selectedId" type="text" name="selectedId" value=""/>
-	</form>
+		@renderOption(film.id+"1",film.title+"1")
+		@renderOption(film.id+"2",film.title+"2")
+		@renderOption(film.id+"3",film.title+"3")	
+	@for(film:Film <- options){
+		@renderOption(film.id,film.title+"1")
+	}
+	<a id="next" class="btn btn-large disabled">Siguiente</a>
 </div>
 
 }
 
 @renderOption(id: String,title: String) = {
-	<a class="option btn btn-large" rel="@id" href="javascript:;">@title</a>
+	<a class="option btn btn-large" rel="@id">@title</a>
 	<br/>
 }
 
+
+
 <script type="text/javascript">
-	$('.option').click( function(e) {
-		e.preventDefault();
-		$('#selectedId').val($(this).attr('rel'));
-	})
+	$('.option').bind('click',function(){
+		$('.option').unbind('click');
+		var correct = '@film.id'+'2';
+		var puntaje = 0;
+		var msg = 'Incorrecto!';
+		if($(this).attr('rel')==correct){
+			puntaje = 10;
+			msg = 'Correcto!';
+		}
+		$('.option').each(function(i,e){
+			if($(e).attr('rel')==correct){
+				$(e).addClass('btn-success');
+			}else{
+				$(e).addClass('btn-danger');
+			}
+		});
+		$('#msg').html(msg);
+		$('#next').attr('href','?score='+puntaje)
+		$('#next').removeClass('disabled');
+	});
+
 </script>
