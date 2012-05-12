@@ -17,7 +17,7 @@ object Films extends Controller {
   }
 
   def list(page: Long = 1, sort: String = "", filter: String = "", year: String = "2012") = Action {
-    val films = Film.findAll(query = filter, year = year, page = page, size = FILMS_PAGE_LEN)
+    val films = Film.findAll(filter = filter, year = year, page = page, size = FILMS_PAGE_LEN)
     Ok(views.html.list(
       page, sort, filter, year, 
       Film.count(filter, year),     // found
@@ -37,7 +37,7 @@ object Films extends Controller {
   }
 
   def test() = Action {
-    Ok(views.html.test(Film.findAll()))
+    Ok(views.html.test(Film.findByRandom(3)))
   }
 
 }

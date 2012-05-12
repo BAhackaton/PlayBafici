@@ -2,11 +2,16 @@
 
 @main("Open Bafici"){<p></p>}{
 
+  size: @films.size
+
   <ul>
   @for(film <- films) {
-    
     <li>title: @film.title </li>
+    <li>synopsis_es: @film.synopsis_es </li>
+    <li>id_youtube: @film.id_youtube </li>
+    <li>pic: <img src="@film.image_url" /> </li>
 
+    <hr />
   }
   </ul>
 
