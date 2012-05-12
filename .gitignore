@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 logs
 project/project
 project/target
@@ -15,3 +16,8 @@ dist
 #idea
 .idea/
 openbafici.iml
+=======
+target
+logs
+project
+>>>>>>> frontend
