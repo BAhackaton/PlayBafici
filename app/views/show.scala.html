@@ -1,35 +1,28 @@
 @(film: Film, score: Int = 10, options: Seq[Film] = Seq[Film]())
 
 @main("PlayBafici") {
-<span>Tenes @score</span>
-<span id="msg">Jugas por 10 puntos</span>
+	<span>Tenes <span id="score">@score</span></span>
+	<span id="msg">Jugas por 10 puntos</span>
 } {
 
-<div class="row-fluid">
-	<div class="hero-unit">
-		<div class="row-fluid">
-			<img class="thumb" src="@film.image_url">
-		</div>	
-	</div>	
-</div>
+	<div class="row-fluid">
+		<img class="thumb" src="@film.image_url" />
+	</div>
 
-<hr/>
+	<hr/>
 
-<div class="row-fluid">
-	@for(film:Film <- options){
-		@renderOption(film.id,film.title)
-	}
-	<a id="next" class="btn btn-large disabled">Siguiente</a>
-</div>
+	<div class="row-fluid">
+		@for(film:Film <- options){
+			@renderOption(film.id,film.title)
+		}
+		<a id="next" class="btn btn-large disabled">Siguiente</a>
+	</div>
 
 }
 
 @renderOption(id: String,title: String) = {
-	<a class="option btn btn-large" rel="@id">@title</a>
-	<br/>
+	<a class="option btn btn-large" rel="@id">@title</a><br/>
 }
-
-
 
 <script type="text/javascript">
 	$('.option').bind('click',function(){
@@ -37,10 +30,14 @@
 		var correct = '@film.id';
 		var puntaje = 0;
 		var msg = 'Incorrecto!';
+		
 		if($(this).attr('rel')==correct){
 			puntaje = 10;
 			msg = 'Correcto!';
 		}
+
+		$('#score').html(parseInt($('#score').html()) + puntaje);
+
 		$('.option').each(function(i,e){
 			if($(e).attr('rel')==correct){
 				$(e).addClass('btn-success');
@@ -48,8 +45,9 @@
 				$(e).addClass('btn-danger');
 			}
 		});
+
 		$('#msg').html(msg);
-		$('#next').attr('href','/filmsForGame/'+puntaje)
+		$('#next').attr('href','/game/'+puntaje)
 		$('#next').removeClass('disabled');
 	});
 
