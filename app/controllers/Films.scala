@@ -32,7 +32,7 @@ object Films extends Controller {
 def filmsForGame(points: Int) = Action { request =>
   request.session.get("counter").map { counter =>
     
-    val films = Film.findByRandom();
+    val films = Film.findByRandom(3);
     val index =  scala.util.Random.nextInt(films.size);
     val winnerFilm = films(index);
 

@@ -64,11 +64,7 @@ object Bafici {
   }
 }""".format(year.takeRight(2))
 
-    val json: JsValue = (getJson(url,body) \ "hits" \ "hits").as[JsValue]
-
-    Logger.info("json: '%s'".format(Json.stringify(json)))
-
-    json
+    (getJson(url,body) \ "hits" \ "hits").as[JsValue]
 
   }
 

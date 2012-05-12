@@ -1,8 +1,8 @@
-rm -fr ../../RestOpenGov.openshift/openbafici/*
+rm -fr ../../RestOpenGov.openshift/PlayBafici/*
 
-cp -r * ../../RestOpenGov.openshift/openbafici
+cp -r * ../../RestOpenGov.openshift/PlayBafici
 
-pushd ../../RestOpenGov.openshift/openbafici
+pushd ../../RestOpenGov.openshift/PlayBafici
 
 ./.openshift_deploy 
 
