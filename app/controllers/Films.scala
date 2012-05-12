@@ -44,7 +44,7 @@ def filmsForGame(points: Int) = Action { request =>
     val index =  scala.util.Random.nextInt(films.size);
     val winnerFilm = films(index);
 
-    Ok(views.html.show(winnerFilm, sum, films)).withSession(
+    Ok(views.html.show(winnerFilm, 0, films)).withSession(
        "counter" -> "0"
     )
   }
