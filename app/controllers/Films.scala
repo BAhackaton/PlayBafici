@@ -26,6 +26,33 @@ object Films extends Controller {
     )
   }
 
+
+
+
+def filmsForGame(points: Int) = Action { request =>
+  request.session.get("counter").map { counter =>
+    
+    val films = Film.findByRandom();
+    val index =  scala.util.Random.nextInt(films.size);
+    val winnerFilm = films(index);
+
+    val sum = counter.toInt + points 
+//    Ok("Se sumo: " + sum + " winner: " + winnerFilm + "\n objects"  + films).withSession("counter" -> sum.toString) 
+      Ok(views.html.show(winnerFilm, sum, films)).withSession("counter" -> sum.toString) 
+  }.getOrElse {
+    val films = Film.findByRandom();
+    val index =  scala.util.Random.nextInt(films.size);
+    val winnerFilm = films(index);
+
+    Ok(views.html.show(winnerFilm, 0, films)).withSession(
+       "counter" -> "0"
+    )
+  }
+}
+
+
+
+
   def show(id: String) = Action {
     //2732fbf4-4e55-4794-8e98-e5d5fa6a0419-4
     Film.findById(id).map { film: Film =>
