@@ -40,8 +40,11 @@ def filmsForGame(points: Int) = Action { request =>
 //    Ok("Se sumo: " + sum + " winner: " + winnerFilm + "\n objects"  + films).withSession("counter" -> sum.toString) 
       Ok(views.html.show(winnerFilm, sum, films)).withSession("counter" -> sum.toString) 
   }.getOrElse {
-    // primer caso
-    Ok("no session id for").withSession(
+    val films = Film.findByRandom();
+    val index =  scala.util.Random.nextInt(films.size);
+    val winnerFilm = films(index);
+
+    Ok(views.html.show(winnerFilm, sum, films)).withSession(
        "counter" -> "0"
     )
   }
