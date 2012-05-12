@@ -1,8 +1,8 @@
 @(film: Film, score: Int = 10, options: Seq[Film] = Seq[Film]())
 
-@main("Open Bafici") {
+@main("PlayBafici") {
 <span>Tenes @score</span>
-<span id="msg">Jugas por 10</span>
+<span id="msg">Jugas por 10 puntos</span>
 } {
 
 <div class="row-fluid">
@@ -16,11 +16,8 @@
 <hr/>
 
 <div class="row-fluid">
-		@renderOption(film.id+"1",film.title+"1")
-		@renderOption(film.id+"2",film.title+"2")
-		@renderOption(film.id+"3",film.title+"3")	
 	@for(film:Film <- options){
-		@renderOption(film.id,film.title+"1")
+		@renderOption(film.id,film.title)
 	}
 	<a id="next" class="btn btn-large disabled">Siguiente</a>
 </div>
@@ -37,7 +34,7 @@
 <script type="text/javascript">
 	$('.option').bind('click',function(){
 		$('.option').unbind('click');
-		var correct = '@film.id'+'2';
+		var correct = '@film.id';
 		var puntaje = 0;
 		var msg = 'Incorrecto!';
 		if($(this).attr('rel')==correct){
@@ -52,7 +49,7 @@
 			}
 		});
 		$('#msg').html(msg);
-		$('#next').attr('href','?score='+puntaje)
+		$('#next').attr('href','/filmsForGame/'+puntaje)
 		$('#next').removeClass('disabled');
 	});
 
