@@ -1,31 +1,40 @@
 @(film: Film, score: Int = 10, options: Seq[Film] = Seq[Film]())
 
 @main("PlayBafici") {
-	<span>Tenes <span id="score">@score</span></span>
-	<span id="msg">Jugas por 10 puntos</span>
-} {
-
-	<div class="row-fluid">
-		<img class="thumb" src="@film.image_url" />
-	</div>
+	
+	<div class="for-points">
+      <h2>Por 10 puntos</h2>
+      <h4><span id="score">@score</span> <span>puntos</span></h4>
+    </div>
+    <ul class="thumbnails">
+      <li class="span3">
+        <div class="thumbnail">
+          <img src="@film.image_url" alt="">
+        </div>
+      </li>
+    </ul>
 
 	<hr/>
 
-	<div class="row-fluid">
+    <div class="quiz">
+      <h3>¿Cómo se llama la película?</h3>
+      <ul>
 		@for(film:Film <- options){
 			@renderOption(film.id,film.title)
 		}
-		<form id="scoreForm" action="/game">
+      </ul>
+      <div class="post-quiz">
+      	<form id="scoreForm" action="/game">
 			<input id="scoreValue" name="scoreValue" type="hidden" value="" />
-			<input type="submit" id="next" class="btn btn-large disabled" value="Siguiente" />
+			<input type="submit" id="next" class="btn-large btw btn-danger disabled" value="Siguiente" />
 		</form>
-
-	</div>
+      </div>
+    </div>
 
 }
 
 @renderOption(id: String,title: String) = {
-	<a class="option btn btn-large" rel="@id">@title</a><br/>
+	<li class="option" id="@id">@title<span></span></li>
 }
 
 <script type="text/javascript">
@@ -35,7 +44,7 @@
 		var puntaje = 0;
 		var msg = 'Incorrecto!';
 		
-		if($(this).attr('rel')==correct){
+		if($(this).attr('id')==correct){
 			puntaje = 10;
 			msg = 'Correcto!';
 		}
@@ -43,16 +52,16 @@
 		$('#score').html(parseInt($('#score').html()) + puntaje);
 
 		$('.option').each(function(i,e){
-			if($(e).attr('rel')==correct){
-				$(e).addClass('btn-success');
+			if($(e).attr('id')==correct){
+				$(e).addClass('bien');
 			}else{
-				$(e).addClass('btn-danger');
+				$(e).addClass('mal');
 			}
 		});
 
 		$('#msg').html(msg);
-		$('#scoreValue').val(puntaje);
-		//$('#next').attr('href','/game/'+puntaje)
+		//$('#scoreValue').val(puntaje);
+		$('#next').attr('href','/game/'+puntaje)
 		$('#next').removeClass('disabled');
 	});
 
