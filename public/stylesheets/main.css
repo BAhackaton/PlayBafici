@@ -154,4 +154,25 @@
          display: block;
          font-size: 13px;
         }
+
+
+    #titleBafici{
+      position: relative;
+    text-align: center;
+    z-index: 100;
+    background-color:black;
+    padding:10px;
+    margin-top: 10px;
+    }
+
+
+    #next {
+      width: 100% !important;
+      display: block;
+      padding: 9px 0;
+      text-align: center;
+    }
+
+    #next:hover { text-decoration:none }
+
       
