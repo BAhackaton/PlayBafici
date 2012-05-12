@@ -1,64 +1,157 @@
-body {
-    padding-bottom: 40px;
-}
-
-#intro { margin:0; padding:0; background-color:#222;overflow:hidden; }
-#intro #container { overflow:hidden; }
-#intro #container div { overflow:hidden; margin-left:0px !important;height:150px;width:150px; }
-#intro #container div img { opacity:0.7; height:150px !important;max-width:none !important;}
-#intro #container div img.active, #container div img:hover { opacity:1; }
-#intro #screen { display:none; background-color:#000; height:300px; opacity:0.8; z-index:10 }
-#intro #title { 
-position:absolute; display:none; z-index:100; color:#FFF; text-align:center; top:50px;width:100%; 
-
-}
-#intro #title h1, #intro #title p {  font-family: 'Arvo', serif }
-#intro #title p { font-size:16pt }
-#intro #title p { margin:10px 0 15px 0; font-size:12pt }
-#intro .button { width:150px; height:60px; background-color:#FF0000; color:#FFF; border:1px solid #DDD; border-radius:7px }
-
-.filmItem {
-	cursor:pointer
-}
-
-.filmItem:hover {
-}
-
-.key {
-	min-height: 20px;
-	text-align: right;
-}
-
-.value {
-	min-height: 25px !important;
-	vertical-align: middle; 
-	padding-top:7px;
-}
-
-.value .thumb {
-	max-width: 100%;
-}
-
-.trailer{
-	max-width:560px;
-}
-
-.en,
-.es {
-	display:none !important;
-}
-
-.activeLang{
-	display:inline-block !important;
-}
-
-td.titulo { 
-	vertical-align: middle; 
-}
-
-.searchLabel{
-	vertical-align:middel;
-	text-align:right;
-}
-	
-.buscar { margin:0 auto; width:40% !important }
+   body {
+      background: #009fd9 url(../images/flechita.png)  -30% top no-repeat !important;
+      color: #FFF !important;
+    }
+    
+    .quiz {
+      background: rgba(225,225,225,0.9);
+      border-radius: 4px;
+    }
+    
+    .quiz h3 {
+      color: #D43331;
+      text-align: center;
+      padding: 1.2em 0.7em;
+      border-bottom: rgba(46,119,147,0.2) 1px solid;
+      margin: 0;
+    }
+    
+    .quiz ul li {
+      color: #000;
+      list-style: none;
+      padding: 0.8em 2.2em;
+      border-bottom: rgba(46,119,147,0.2) 1px solid;
+      font-size: 18px;
+      background: url(../images/select_inactive.png) no-repeat 0.7em 15px;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    
+    .quiz ul li.mal span {
+      background: url(../images/mal.png) no-repeat 0 0;
+      display: block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: 0.8em;
+      top: 1em;
+    }
+    
+    .quiz ul li.bien span {
+      background: url(../images/check.png) no-repeat 0 0;
+      display: block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: 0.8em;
+      top: 1em;
+     
+    }
+    
+    
+    
+    .quiz ul li.active {
+      background: url(../images/select_active.png) no-repeat 0.7em 15px rgba(225,225,225,0.8);
+      color: #2a9421;
+      font-weight: bold;
+    }
+    
+  .for-points {
+    position: relative;
+  }    
+    .for-points h2 {
+      background: #d43331;
+      padding: 0.3em;
+      margin: 0;
+      border-radius: 4px
+    }
+    
+    ul {
+      margin: 0!important;
+    }
+    ul .thumbnail {
+      border: 0 none;
+      padding: 0;
+      margin: 0.5em 0;
+    }
+    
+    ul .thumbnail img {
+      width: 100%;
+    }
+    .thumbnails > li {
+    float: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    }
+    
+    h1 {
+      background: url(../images/logo.png) no-repeat top center;
+      text-indent: -999999px;
+      min-height: 90px;
+      margin-top: 0.3em;
+    }
+    .fork {
+      text-align: right;
+      font-weight: bold;
+      text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+     
+      padding-top: 0.6em;
+    }
+    
+    .fork a {
+       color: #FFF;
+    }
+    .post-quiz {
+      padding: 1em;
+    }
+    .quiz button {
+      width: 100%;
+      font-weight: bold!important;
+      text-align: left;
+    }
+    
+    .help {
+      margin-top: 1em;
+      font-size: 16px;
+      color: #000;
+    
+    }
+    .help h4 {
+      font-weight: normal;
+      font-size: 16px;
+    }
+    .help strong {
+      color: #D43331;
+    }
+    
+    .pista {
+      font-weight: bold;
+      margin-top: 2em;
+      font-size: 12px;
+      
+    }
+    
+    .pista img {
+      float: left;
+      margin-right: 1em;
+    }
+    
+    .pista div {
+      margin-top: 1em;
+    }
+    
+    .for-points  h4{
+      text-align: right;
+    position: absolute;
+    right: 0.4em;
+    top: 0.4em;
+    line-height: 15px;
+    font-size: 28px;
+      }
+      
+      .for-points  h4 span {
+         display: block;
+         font-size: 13px;
+        }
+      
