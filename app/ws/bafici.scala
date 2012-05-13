@@ -21,7 +21,7 @@ object Bafici {
   val defaultYear = isNull(application.configuration.getString("bafici.year"), "2012")
 
   private def getJson(url: String, body: String = ""): JsValue = {
-    Logger.info("about to run: '%s'\nbody:%s".format(url, body))
+    Logger.info("about to run: '%s'".format(url))
 
     if (body=="") {
       WS.url(url).get().await.get.json  
