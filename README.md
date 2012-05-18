@@ -6,3 +6,7 @@ Si acierta suma puntos y si no acierta se le dice cual era la respuesta correcta
 
 Esta aplicación gano mención especial en cultura por el gobierno de la ciudad de Buenos aires: mira esta noticia.
 Repositorio github: https://github.com/cimobsas2012/PlayBafici
+
+Esta aplicación fue realiza para demostrar todos lo beneficios y posibilidades que da el uso de <a href="http://restopengov.org">RestOpenGov</a>
+
+<strong>ESTA APLICACION GANO MENCION ESPECIAL EN CULTURA EN EL #BAHACKATON :)</strong>
